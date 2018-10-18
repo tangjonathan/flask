@@ -24,14 +24,14 @@ def f(num):
 def factors(num):
   return [x for x in range(1, num+1) if num%x==0]
 
-@app.route('/factors/<int:num>')
+@app.route('/factors/<int:n>')
 def factors_display(n):
 	return render_template(
 		"factors.html",  # name of template
 		number=n,  # value for `number` in template
 		factors=factors(n) # value for `factors` in template
 	)
-    
+
 @app.route('/factors_raw/<int:n>')
 def factors_display_raw_html(n):
 	factors_list = factors(int(n))
